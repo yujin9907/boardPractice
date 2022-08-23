@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/board") // 모든 url 앞에 이거 붙여야 됨
+//@RequestMapping("/board") // 모든 url 앞에 이거 붙여야 됨
 public class BoardController {
 
     @Autowired // DI 할 수 있게 해줌
@@ -38,6 +38,11 @@ public class BoardController {
         boardRepository.save(board);
                 // 스프링 jpa 에서 제공하는 기본메서드
         return "board/form";
+    }
+
+    @GetMapping("/calender")
+    public String calender(){
+        return "board/testCalender";
     }
 
 }

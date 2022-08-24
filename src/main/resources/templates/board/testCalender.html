@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thyleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/fullcalendar/lib/main.css}" rel="stylesheet"/>
+    <link th:href="@{/fullcalendar/lib/main.min.css}" rel="stylesheet"/>
+    <script th:src="@{/fullcalendar/lib/locales-all.js}"></script>
+    <script th:src="@{/fullcalendar/lib/locales-all.min.js}"></script>
+    <script th:src="@{/fullcalendar/lib/main.js}"></script>
+    <script th:src="@{/fullcalendar/lib/main.min.js}"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+            });
+            calendar.render();
+        });
+
+    </script>
 </head>
 <body>
-$END$
+    캘린더페이지
+    <div id='calendar'></div>
 </body>
 </html>

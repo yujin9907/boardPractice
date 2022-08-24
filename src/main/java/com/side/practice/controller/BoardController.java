@@ -42,7 +42,7 @@ public class BoardController {
 
     @GetMapping("/calender")
     public String calender(){
-        return "board/testCalender";
+        return "board/calenderPage";
     }
 
 }

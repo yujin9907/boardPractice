@@ -9,12 +9,16 @@ import javax.persistence.*;
 
 
 @Entity
-@Data
+@Data // tostring, allargsconstructor, setter, getter 다 포함
+// @Builder // 사용법을 몰라서 일단 주석
 public class Board {
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // 이게 무슨 설정?
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //  AUTO_INCREMENT
     private Long id;
     private String title;
     private String content;
+
+
+//    private String path; 사진 담을 거 나중에
 }

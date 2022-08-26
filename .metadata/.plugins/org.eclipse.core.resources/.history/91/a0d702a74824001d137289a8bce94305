@@ -1,0 +1,19 @@
+package site.metacoding.demo.user;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import site.metacoding.demo.user.User;
+import site.metacoding.demo.user.UserDao;
+
+@Controller
+public class UserController {
+	@GetMapping("/user/{id}")
+	public String detail(@PathVariable Integer id) {
+		// 원래는 다오가 IOC 컨테이너에 뜨도록 만들어줘야되는데 연습
+		UserDao userdao = new UserDao();
+		User userPS = userdao.findById(id);
+		return "user/detail";
+	}
+}

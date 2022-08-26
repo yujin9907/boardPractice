@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>디테일 페이지</h1>
+어떻게 하면 db에서 가져온 정보를 뷰에 뿌릴까
+<hr>
+유저네임 : ?? <br>
+유제비번 : ?? <br>
+이메일 : ?? <br>
+</body>
+</html>

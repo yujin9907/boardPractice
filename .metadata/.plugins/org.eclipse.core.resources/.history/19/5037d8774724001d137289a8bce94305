@@ -1,0 +1,13 @@
+package site.metacoding.demo.user;
+
+// 엔티티, 테이블과 똑같이 생성
+// 디폴트생성자, 풀생상자, 게터세터 필요 => 롬북으로 간단하게 정리
+
+
+public class User {
+	private Integer id;
+	private String username;
+	private String password;
+	private String email;
+
+}

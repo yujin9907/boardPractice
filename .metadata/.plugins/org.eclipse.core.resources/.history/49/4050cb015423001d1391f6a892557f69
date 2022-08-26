@@ -1,0 +1,14 @@
+package site.metacoding.demo.web;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoController {
+	
+	@GetMapping("/home")
+	public void form() {
+		System.out.println("나는 홈입니다");
+	}
+
+}

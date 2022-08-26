@@ -42,11 +42,12 @@ public class BoardController {
     @PostMapping("/insert")
     public String insert(@RequestParam(value = "title") String title, @RequestParam(value = "content") String content){
         // if(boardRepository.).isPresent()){}
-        // Board board = Board.builder().title(title).content(content).build(); // 칼럼을 호출하면서, return으로 넣으려고, 값을 넣어줌 / board에서 한번에 객체로 받아준 거랑 비교해서 정리
-        boardSer
+        Board board = Board.builder().title(title).content(content).build(); // 칼럼을 호출하면서, return으로 넣으려고, 값을 넣어줌 / board에서 한번에 객체로 받아준 거랑 비교해서 정리
         boardRepository.save(board);
         return title+"이 저장되었습니다";
     }
+
+
 
 //    @Autowired // DI 할 수 있게 해줌
 //    private BoardRepository boardRepository;

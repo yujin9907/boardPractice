@@ -27,6 +27,10 @@ public class BoardService {
     }
 
     public Board insert(Board board){
-        return boardRepository.save(board);
+        Board b = new Board();
+        b.setTitle(board.getTitle());
+        b.setContent(board.getContent());
+        b.setPic(board.getPic());
+        return boardRepository.save(b);
     }
 }

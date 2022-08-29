@@ -7,6 +7,12 @@
     <title>Insert title here</title>
 </head>
 <body>
-<h1>index page</h1>
+<h1>글쓰기</h1>
+<form action="write" method="post" enctype="multipart/form-data">
+    <input type="text" name="title">
+    <input type="text" name="content">
+    <input type="file" name="pic">
+    <button>작성하기</button>
+</form>
 </body>
 </html>

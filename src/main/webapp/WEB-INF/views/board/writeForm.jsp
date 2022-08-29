@@ -11,7 +11,7 @@
 <form action="write" method="post" enctype="multipart/form-data">
     <input type="text" name="title">
     <input type="text" name="content">
-    <input type="file" name="pic">
+    <input type="file" name="file">
     <button>작성하기</button>
 </form>
 </body>

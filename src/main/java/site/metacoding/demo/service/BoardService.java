@@ -43,7 +43,8 @@ public class BoardService {
         String fileName = uuid +"_"+file.getOriginalFilename();
         File saveFile = new File(imagePath, fileName);
         file.transferTo(saveFile);
-
+        board.setPic(fileName);
+        board.setPicPath(imagePath);
 
         return boardRepository.save(board);
     }

@@ -8,5 +8,7 @@
 </head>
 <body>
 <h1>index page</h1>
+https://khdscor.tistory.com/4
+DB h2 설정 참고
 </body>
 </html>

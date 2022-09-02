@@ -14,7 +14,7 @@ import site.metacoding.demo.web.dto.req.FormDto;
 @Controller
 public class BoardController {
 
-    private BoardDao boardDao;
+    private final BoardDao boardDao;
 
     @GetMapping("/board")
     public String board(){

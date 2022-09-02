@@ -6,7 +6,7 @@
     <select id="findAll" resultType="site.metacoding.demo.domain.Board">
         SELECT * FROM board ORDER BY id DESC
     </select>
-    <insert id="insert" parameterType="site.metacoding.demo.domain.Board">
+    <insert id="insert">
         INSERT INTO board(title, content, image, date) VALUES(#{title}, #{content}, #{image}, now());
     </insert>
 </mapper>

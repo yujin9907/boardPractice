@@ -3,6 +3,8 @@ package site.metacoding.demo.domain;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+
 @Getter
 @Setter
 public class Board {
@@ -10,5 +12,5 @@ public class Board {
     private String title;
     private String content;
     private String image;
-    private String date;
+    private Timestamp date;
 }

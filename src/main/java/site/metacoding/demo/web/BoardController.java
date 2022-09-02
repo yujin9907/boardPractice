@@ -10,6 +10,8 @@ import site.metacoding.demo.domain.Board;
 import site.metacoding.demo.domain.BoardDao;
 import site.metacoding.demo.web.dto.req.FormDto;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Controller
 public class BoardController {
@@ -21,17 +23,20 @@ public class BoardController {
         return "board/main";
     }
 
+    // 전체조회
     @GetMapping("/board/list")
-    public String list(FormDto formDto, Model model){
-        boardDao.insert(formDto);
-        model.addAttribute("board", formDto);
+    public String list(Model model){
+        List<Board> b = boardDao.findAll();
+        model.addAttribute("list", b);
         return "board/list";
     }
+
+    // 글 작성
     @GetMapping("/board/create")
     public String createForm(){
         return "board/form";
     }
-    @PostMapping("/board/createdo")
+    @PostMapping("/board/create")
     public String create(FormDto formDto){
         boardDao.insert(formDto);
         return "redirect:/board/list";

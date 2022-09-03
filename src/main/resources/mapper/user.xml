@@ -7,11 +7,11 @@
         SELECT * FROM user WHERE username=#{username} AND password=#{password}
     </select>
     <select id="findById" resultType="site.metacoding.demo.domain.user.User">
-        select * from user where id=#{id};
+        select * from user where id=#{id}
     </select>
     <insert id="insert">
         INSERT INTO user(username, password, email, date)
-        VALUES(#{username}, #{password}, #{email}, now());
+        VALUE(#{username}, #{password}, #{email}, now())
     </insert>
 
 </mapper>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import site.metacoding.demo.domain.user.User;
 import site.metacoding.demo.domain.user.UserDao;
+import site.metacoding.demo.web.dto.req.user.JoinDto;
 import site.metacoding.demo.web.dto.req.user.LoginDto;
 
 import javax.servlet.http.HttpServlet;
@@ -31,13 +32,23 @@ public class UserController {
         return "user/login";
     }
     @PostMapping("/login")
-    public String loginDo (LoginDto loginDto, HttpServletRequest req){
-        User u = userDao.login(loginDto);
-        if(u!=null){
-            sessoin.setAttribute("principal", u);
-            return "redirect:/main";
+    public String login (LoginDto loginDto, HttpServletRequest req){
+        User userPS = userDao.login(loginDto);
+        if(userPS!=null){
+            sessoin.setAttribute("principal", userPS);
+            return "redirect:/";
         } else {
             return "redirect:/login";
         }
+    }
+
+    @GetMapping("/join")
+    public String join(){
+        return "user/join";
+    }
+    @PostMapping("/join")
+    public String join(JoinDto joinDto){
+        userDao.insert(joinDto);
+        return "redirect:/main";
     }
 }

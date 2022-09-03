@@ -35,7 +35,7 @@
 						<c:when test="${empty principal}">
 							<li class="nav-item"><a class="nav-link" href="/login">로그인</a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="#">회원가입</a>
+							<li class="nav-item"><a class="nav-link" href="/join">회원가입</a>
 							</li>
 						</c:when>
 						<c:otherwise>

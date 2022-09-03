@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-</head>
-<body>
+<%@ include file="../layout/header.jsp"%>
+
 <h1>list page</h1>
 
 <c:forEach items="${list}" var="list">
@@ -19,5 +13,4 @@
         <td><c:out value="${list.image}"/></td>
     </tr>
 </c:forEach>
-</body>
-</html>
+<%@ include file="../layout/footer.jsp"%>

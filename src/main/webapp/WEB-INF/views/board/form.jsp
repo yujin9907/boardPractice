@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-</head>
-<body>
-<h1>index page</h1>
-form
-</body>
-</html>
+<%@ include file="../layout/header.jsp"%>
+<div class="container">
+    <form>
+        <div class="mb-3 mt-3">
+            <input
+                    type="text" class="form-control"
+                    placeholder="Enter title" name="title">
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" rows="8" name="content"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">글쓰기완료</button>
+    </form>
+</div>
+<%@ include file="../layout/footer.jsp"%>

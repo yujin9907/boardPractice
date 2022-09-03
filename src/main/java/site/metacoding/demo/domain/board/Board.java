@@ -1,12 +1,16 @@
-package site.metacoding.demo.web.dto.req;
+package site.metacoding.demo.domain.board;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+
 @Getter
 @Setter
-public class FormDto {
+public class Board {
+    private Integer id;
     private String title;
     private String content;
     private String image;
+    private Timestamp date;
 }

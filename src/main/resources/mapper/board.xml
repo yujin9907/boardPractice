@@ -9,8 +9,15 @@
     <select id="findById" resultType="site.metacoding.demo.domain.board.Board">
         select * from board where id=#{id};
     </select>
+    <select id = "findByIdView" resultType="site.metacoding.demo.domain.board.mapper.BoardView">
+        SELECT b.title, b.content, b.image, b.date, u.id, u.username, u.password, u.email
+        FROM board b INNER JOIN user u
+        ON b.userid=u.id
+        WHERE b.id=${id};
+    </select>
     <insert id="insert">
         INSERT INTO board(title, content, image, date) VALUES(#{title}, #{content}, #{image}, now());
     </insert>
+
 
 </mapper>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import site.metacoding.demo.domain.board.Board;
 import site.metacoding.demo.domain.board.BoardDao;
+import site.metacoding.demo.domain.board.mapper.BoardView;
 import site.metacoding.demo.web.dto.req.board.FormDto;
 
 import java.util.List;
@@ -20,13 +21,13 @@ public class BoardController {
 
     @GetMapping("/board")
     public String board(){
-        return "board/main";
+        return "main";
     }
 
     // 한건조회
     @GetMapping("/board/{id}")
     public String findById(@PathVariable Integer id, Model model){
-        Board view = boardDao.findById(id);
+        BoardView view = boardDao.findByIdView(id);
         model.addAttribute("board", view);
         return "board/view";
     }
@@ -35,7 +36,7 @@ public class BoardController {
     @GetMapping("/board/list")
     public String list(Model model){
         List<Board> b = boardDao.findAll();
-        model.addAttribute("list", b);
+        model.addAttribute("boards", b);
         return "board/list";
     }
 

@@ -49,6 +49,6 @@ public class UserController {
     @PostMapping("/join")
     public String join(JoinDto joinDto){
         userDao.insert(joinDto);
-        return "redirect:/main";
+        return "redirect:/";
     }
 }

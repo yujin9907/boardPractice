@@ -6,12 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import site.metacoding.demo.domain.board.Board;
 import site.metacoding.demo.domain.board.BoardDao;
 import site.metacoding.demo.domain.board.mapper.BoardView;
 import site.metacoding.demo.web.dto.req.board.FormDto;
 
+import javax.swing.filechooser.FileSystemView;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
+
 
 @RequiredArgsConstructor
 @Controller
@@ -46,8 +53,19 @@ public class BoardController {
         return "board/form";
     }
     @PostMapping("/board/create")
-    public String create(FormDto formDto){
-        boardDao.insert(formDto);
+    public String create(FormDto formDto, @RequestParam("files") MultipartFile file) throws IOException {
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images";
+        UUID uuid = UUID.randomUUID();
+
+        String fileName = uuid + "_" + file.getOriginalFilename();
+        File saveFile = new File(projectPath, fileName);
+
+        file.transferTo(saveFile);
+
+        String filePath = "/files/"+fileName;
+
+        boardDao.insert(formDto, fileName, filePath);
+
         return "redirect:/board/list";
     }
 

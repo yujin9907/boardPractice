@@ -16,7 +16,7 @@
         WHERE b.id=${id};
     </select>
     <insert id="insert">
-        INSERT INTO board(title, content, image, date) VALUES(#{title}, #{content}, #{image}, now());
+        INSERT INTO board(title, content, image, imagePath, date) VALUES(#{title}, #{content}, #{image}, #{imagePath}, now());
     </insert>
 
 

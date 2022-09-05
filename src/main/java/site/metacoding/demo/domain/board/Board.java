@@ -12,5 +12,6 @@ public class Board {
     private String title;
     private String content;
     private String image;
+    private String imagePath;
     private Timestamp date;
 }

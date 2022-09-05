@@ -6,7 +6,7 @@ import site.metacoding.demo.web.dto.req.board.FormDto;
 import java.util.List;
 
 public interface BoardDao {
-    public void insert(FormDto formDto); // DTO 생각해보기
+    public void insert(FormDto formDto, String filename, String filepath); // DTO 생각해보기
     public Board findById(Integer id);
     public List<Board> findAll();
     public BoardView findByIdView(Integer id);

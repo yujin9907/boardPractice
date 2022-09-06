@@ -17,4 +17,10 @@ public class FormDto {
     private Integer userId;
     private Integer imageId;
 
+    // board에 allargs 만들고 해야 됨
+    public Board toEntity(Integer userId, Integer imageId){
+        Board board = new Board(null, this.title, this.content, null, userId, imageId);
+        return board;
+    }
+
 }

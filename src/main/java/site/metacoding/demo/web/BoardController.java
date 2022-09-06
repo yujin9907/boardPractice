@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import site.metacoding.demo.domain.board.Board;
 import site.metacoding.demo.domain.board.BoardDao;
 import site.metacoding.demo.domain.board.mapper.BoardView;
+import site.metacoding.demo.domain.image.Image;
 import site.metacoding.demo.domain.image.ImageDao;
 import site.metacoding.demo.domain.user.User;
 import site.metacoding.demo.web.dto.req.board.FormDto;
@@ -29,6 +30,7 @@ public class BoardController {
 
     private final BoardDao boardDao;
     private final HttpSession session;
+    private final ImageDao imageDao;
 
     @GetMapping({"/", "/main"})
     public String board(){
@@ -78,8 +80,8 @@ public class BoardController {
 
         String imagePath = "/files/"+imageName;
 
-        //imageDao.save(imageName, imagePath);
-        boardDao.insert(formDto);
+        Image imageCulumn = imageDao.save(imageName, imagePath);
+        boardDao.insert(formDto.toEntity(imageCulumn.getId(), principal.getId()));
 
         return "redirect:/board/list";
     }

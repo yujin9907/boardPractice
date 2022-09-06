@@ -2,6 +2,7 @@ package site.metacoding.demo.domain.board.mapper;
 
 import lombok.Getter;
 import lombok.Setter;
+import site.metacoding.demo.domain.board.Board;
 import site.metacoding.demo.domain.user.User;
 
 import java.sql.Timestamp;
@@ -14,4 +15,5 @@ public class BoardView {
     private Timestamp date;
     private String imageId;
     private User username;
+
 }

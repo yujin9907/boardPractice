@@ -22,11 +22,6 @@ public class UserController {
     private final UserDao userDao;
     private final HttpSession sessoin;
 
-    @GetMapping({"/", "/main"})
-    public String main(){
-        return "main";
-    }
-
     @GetMapping("/login")
     public String login(){
         return "user/login";

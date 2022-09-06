@@ -9,10 +9,9 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 public class BoardView {
-    private Integer id;
     private String title;
     private String content;
-    private String image;
     private Timestamp date;
-    private User user;
+    private String imageId;
+    private User username;
 }

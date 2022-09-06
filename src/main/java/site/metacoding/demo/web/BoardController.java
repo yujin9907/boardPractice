@@ -11,8 +11,11 @@ import org.springframework.web.multipart.MultipartFile;
 import site.metacoding.demo.domain.board.Board;
 import site.metacoding.demo.domain.board.BoardDao;
 import site.metacoding.demo.domain.board.mapper.BoardView;
+import site.metacoding.demo.domain.image.ImageDao;
+import site.metacoding.demo.domain.user.User;
 import site.metacoding.demo.web.dto.req.board.FormDto;
 
+import javax.servlet.http.HttpSession;
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.IOException;
@@ -25,16 +28,18 @@ import java.util.UUID;
 public class BoardController {
 
     private final BoardDao boardDao;
+    private final HttpSession session;
 
-    @GetMapping("/board")
+    @GetMapping({"/", "/main"})
     public String board(){
         return "main";
     }
 
-    // 한건조회
+    // 상세보기
     @GetMapping("/board/{id}")
-    public String findById(@PathVariable Integer id, Model model){
+    public String detail(@PathVariable Integer id, Model model){
         BoardView view = boardDao.findByIdView(id);
+        //이미지 불러오기
         model.addAttribute("board", view);
         return "board/view";
     }
@@ -50,21 +55,31 @@ public class BoardController {
     // 글 작성
     @GetMapping("/board/create")
     public String createForm(){
+        User principal = (User) session.getAttribute("principal");
+        if (principal==null){
+            return "redirect:/";
+        }
         return "board/form";
     }
     @PostMapping("/board/create")
-    public String create(FormDto formDto, @RequestParam("files") MultipartFile file) throws IOException {
+    public String create(FormDto formDto, @RequestParam("image") MultipartFile image) throws IOException {
+        User principal = (User) session.getAttribute("principal");
+        if (principal==null){
+            return "redirect:/";
+        }
+
         String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images";
         UUID uuid = UUID.randomUUID();
 
-        String fileName = uuid + "_" + file.getOriginalFilename();
-        File saveFile = new File(projectPath, fileName);
+        String imageName = uuid + "_" + image.getOriginalFilename();
+        File saveImage = new File(projectPath, imageName);
 
-        file.transferTo(saveFile);
+        image.transferTo(saveImage);
 
-        String filePath = "/files/"+fileName;
+        String imagePath = "/files/"+imageName;
 
-        boardDao.insert(formDto, fileName, filePath);
+        //imageDao.save(imageName, imagePath);
+        boardDao.insert(formDto);
 
         return "redirect:/board/list";
     }

@@ -11,7 +11,7 @@ public class Board {
     private Integer id;
     private String title;
     private String content;
-    private String image;
-    private String imagePath;
     private Timestamp date;
+    private Integer userId;
+    private Integer imageId;
 }

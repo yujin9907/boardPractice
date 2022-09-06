@@ -10,8 +10,8 @@
         select * from user where id=#{id}
     </select>
     <insert id="insert">
-        INSERT INTO user(username, password, email, date)
-        VALUE(#{username}, #{password}, #{email}, now())
+        INSERT INTO user(username, password, date)
+        VALUE(#{username}, #{password}, now())
     </insert>
 
 </mapper>

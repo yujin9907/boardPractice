@@ -6,7 +6,8 @@
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth'
+            initialView: 'dayGridMonth',
+            contentHeight: 600
         });
         calendar.render();
     });
@@ -20,14 +21,6 @@
             font-size: 14px;
         }
 
-        #calendar-container {
-            position: relative;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin-bottom: 10%;
-        }
 
         .fc-header-toolbar {
             /*
@@ -43,6 +36,7 @@
 
 
     <div id='calendar'></div>
+
 </div>
 <%@ include file="layout/footer.jsp" %>
 

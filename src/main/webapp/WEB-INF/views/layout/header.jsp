@@ -14,9 +14,18 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!--캘린더-->
+	<link href="/fullcalendar/lib/main.css" rel="stylesheet"/>
+	<link href="/fullcalendar/lib/main.min.css" rel="stylesheet"/>
+	<script src="/fullcalendar/lib/locales-all.js"></script>
+	<script src="/fullcalendar/lib/locales-all.min.js"></script>
+	<script src="/fullcalendar/lib/main.js"></script>
+	<script src="/fullcalendar/lib/main.min.js"></script>
 </head>
-<body>
 
+
+<body>
+<div class="d-flex flex-column">
 	<h1>${sessionScope.principal.username}</h1>
 
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">

@@ -17,7 +17,6 @@
 </head>
 <body>
 
-	<h1>${sessionScope.principal.username}</h1>
 
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<div class="container-fluid">

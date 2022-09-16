@@ -10,7 +10,7 @@
         select * from user where id=#{id}
     </select>
     <insert id="insert">
-        INSERT INTO user(username, password, date)
+        INSERT INTO user(username, password, createdAt)
         VALUE(#{username}, #{password}, now())
     </insert>
 

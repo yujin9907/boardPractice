@@ -31,6 +31,7 @@ public class UserController {
         User userPS = userDao.login(loginDto);
         if(userPS!=null){
             sessoin.setAttribute("principal", userPS);
+            System.out.println(sessoin.getAttribute("principal"));
             return "redirect:/";
         } else {
             return "redirect:/login";

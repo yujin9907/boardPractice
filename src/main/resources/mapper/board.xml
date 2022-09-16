@@ -18,7 +18,7 @@
     </select>
 
     <insert id="insert">
-        INSERT INTO board(title, content, image, imagePath, date) VALUES(#{title}, #{content}, #{image}, #{imagePath}, now());
+        INSERT INTO board(title, content, imageId, userId, date) VALUES(#{title}, #{content}, #{imageId}, #{userId}, now());
     </insert>
 
 

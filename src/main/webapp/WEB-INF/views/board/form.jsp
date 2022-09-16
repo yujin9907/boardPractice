@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
 <div class="container">
-    <form>
+    <form action="/board/createdo" method="post" enctype="multipart/form-data">
         <div class="mb-3 mt-3">
             <input
                     type="text" class="form-control"
@@ -11,7 +11,10 @@
         <div class="mb-3">
             <textarea class="form-control" rows="8" name="content"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">글쓰기완료</button>
+        <div class="mb-3">
+            <input type="file" name="image">
+        </div>
+        <button class="btn btn-primary">글쓰기완료</button>
     </form>
 </div>
 <%@ include file="../layout/footer.jsp"%>

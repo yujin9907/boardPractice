@@ -63,9 +63,10 @@ public class BoardController {
         }
         return "board/form";
     }
-    @PostMapping("/board/create")
+    @PostMapping("/board/createdo")
     public String create(FormDto formDto, @RequestParam("image") MultipartFile image) throws IOException {
         User principal = (User) session.getAttribute("principal");
+        System.out.println(session.getAttribute("principal"));
         if (principal==null){
             return "redirect:/";
         }
@@ -80,8 +81,11 @@ public class BoardController {
 
         String imagePath = "/files/"+imageName;
 
-        Image imageCulumn = imageDao.save(imageName, imagePath);
-        boardDao.insert(formDto.toEntity(imageCulumn.getId(), principal.getId()));
+        System.out.println(imageName);
+        System.out.println(imagePath);
+
+        imageDao.save(imageName, imagePath);
+        boardDao.insert(formDto.toEntity(10, principal.getId()));
 
         return "redirect:/board/list";
     }
